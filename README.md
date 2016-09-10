@@ -1,4 +1,4 @@
 # MyServer
 
-###[主页](wangweikang.win)
-###[我的自留地](wangweikang.win/message)
+###[主页](http://wangweikang.win/)
+###[我的自留地](http://wangweikang.win/message/)
