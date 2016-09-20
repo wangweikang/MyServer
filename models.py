@@ -5,7 +5,7 @@ import time
 import json
 
 app = Flask(__name__)
-app.secret_key = "zheshigehsa"
+app.secret_key = "zheshigesha"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'

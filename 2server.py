@@ -59,7 +59,8 @@ def route_index():
 def route_zhizunbao():
 
     header = 'HTTP/1.x 210 VERY OK\r\nContent-Type: text/html\r\n'
-    body = template('./templates/html_basic.html')
+    # body = template('./templates/html_basic.html')
+    body = template('./templates/index.html')
     r = header + '\r\n' + body
     return r.encode(encoding='utf-8')
 

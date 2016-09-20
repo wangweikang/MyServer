@@ -1,0 +1,79 @@
+.vi-container {
+    text-align: center;
+    width: 320px;
+    margin: auto;
+}
+
+.vi-title {
+    font-size: 40px;
+    color: #10DDC2;
+}
+
+.vi-tab {
+    margin-top: 30px;
+}
+
+.vi-tab a {
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.vi-block {
+    height: 3px;
+    width: 45px;
+    position: relative;
+    left: 110px;
+    background-color: #10DDC2;
+}
+
+.vi-form-textinput {
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 3px;
+    border-width: 1px;
+    border-color: lightgray;
+}
+
+.vi-input-wrapper input {
+    width: 90%;
+    height: 35px;
+    margin: 5px;
+    border: none;
+    outline: none;
+}
+
+.vi-input-wrapper+.vi-input-wrapper {
+    border-style: solid;
+    border-width: 0px;
+    border-top-width: 1px;
+    border-color: lightgray;
+}
+
+.vi-button-big {
+    width: 100%;
+    height: 35px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #10DDC2;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.vi-img-circle {
+    border-radius: 50%;
+}
+
+.vi-content {
+    text-align: center;
+    display: flex;
+}
+
+.vi-content-item {
+    flex-grow: 1;
+}
