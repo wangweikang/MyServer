@@ -1,0 +1,123 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="http://front.dog/favicon.ico">
+    <link rel="stylesheet" href="../static/css/pure-min.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <link rel="icon" href="http://front.dog/favicon.ico">
+    <title>TODO</title>
+</head>
+<style media="screen">
+    body {}
+
+    .vi-container {
+        text-align: center;
+    }
+
+    .vi-todo-head {
+        margin-top: 18px;
+        font-size: 24px;
+    }
+
+    .input {
+        width: 30%;
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    #head-font {
+        font-size: 15px;
+    }
+
+    .vi-todo-cell+.vi-todo-cell {
+        border-top-style: solid;
+        border-top-width: 2px;
+        border-top-color: lightgray;
+    }
+</style>
+<script type="text/javascript">
+    var todoTemplate = function(todo) {
+        var t = todo
+        var t =
+            `
+        <div class="todo-cell cell item">
+
+            <span>${ t.todo }}</span>
+            <span class="right span-margin">${ t.created_time }</span>
+            <span class="right span-margin">by: ${ t.name }</span>
+            <div class="right span-margin">
+                <button class="todo-delete" data-id="${ t.id }">删除</button>
+                <a href="#" class="com">编辑</a>
+            </div>
+            <div class="comment-div hide">
+                <div class="">
+                    <div class="cell-inner item">
+                        <span class="comment">{{ c.comment }}</span>
+                        <span class="time right span-margin">{{ c.created_time }}</span>
+                        <span class="name right span-margin">by:{{ c.name }}</span>
+                    </div>
+
+                </div>
+                    <input type="hidden" name="todo_id" value="{{ t.id }}">
+                    <input name="comment" class="left m" placeholder="Comment">
+                    <button>确定</button>
+            </div>
+        </div>
+        `
+        return t
+    }
+</script>
+
+<body>
+    <div class="vi-container">
+        <div class="vi-title">
+            <h1>Todo</h1>
+        </div>
+        <div class="vi-input">
+            <input name="todo" placeholder="todo" class="input"></input>
+
+            <button type="submit" class="pure-button pure-button-primary sub" type="submit">添加</button>
+        </div>
+        <div class="vi-todo-head">
+            <span id="head-font">NUM</span> |
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;Task&nbsp;&nbsp;&nbsp;&nbsp;</span> |
+            <span id="head-font">TIME</span> |
+            <span id="head-font">ACTION</span>
+        </div>
+
+        <div class="vi-todo-list">
+            {% for t in todos %}
+            <div class="todo-cell cell item">
+
+                <span>{{ t.todo }}</span>
+                <span class="right span-margin">{{ t.created_time }}</span>
+                <span class="right span-margin">by: {{ t.name }}</span>
+                <div class="right span-margin">
+                    <button class="todo-delete" data-id="{{ t.id }}">删除</button>
+                    <a href="#" class="com">编辑</a>
+                </div>
+                <div class="comment-div hide">
+                    <div class="">
+                        {% for c in t.comment %}
+                        <div class="cell-inner item">
+
+                            <span class="comment">{{ c.comment }}</span>
+                            <span class="time right span-margin">{{ c.created_time }}</span>
+                            <span class="name right span-margin">by:{{ c.name }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <form action="/comment" method="post" class="comment-form">
+                        <input type="hidden" name="weibo_id" value="{{ t.id }}">
+                        <input name="comment" class="left m" placeholder="Comment">
+                        <button>确定</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
